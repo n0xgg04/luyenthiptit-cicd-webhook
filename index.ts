@@ -17,5 +17,5 @@ app.post("/webhook", (req, res) => {
 })
 
 app.listen(3344).listen(() => {
-    console.log("listening...")
+    console.log("Listening...")
 })
