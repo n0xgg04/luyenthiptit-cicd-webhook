@@ -1,7 +1,7 @@
 {
   "name": "luyenthiptit-cicd-webhook",
   "module": "index.ts",
-  "type": "module",
+  "type": "commonjs",
   "devDependencies": {
     "bun-types": "latest"
   },
