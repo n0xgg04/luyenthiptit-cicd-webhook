@@ -11,7 +11,9 @@ app.use(morgan("dev"))
 app.post("/webhook", (req: Request, res: Response) => {
     const a = execSync("cd /root/luyen-thi-ptit-golang && git pull && docker compose down web && docker pull n0xgg04/luyenthiptit:latest && make migrate && docker compose up web -d",{stdio: 'inherit'})
     console.log(a.toString())
-    res.sendStatus(200)
+    res.sendStatus(200).json({
+        message: "success"
+    })
 })
 
 app.listen(3344).listen(() => {
