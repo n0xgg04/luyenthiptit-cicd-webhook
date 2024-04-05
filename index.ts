@@ -9,11 +9,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(morgan("dev"))
 
 app.post("/webhook", (req: Request, res: Response) => {
-    if (req.headers['user-agent'] !== 'Docker-Hub-Sec') {
-        return res.sendStatus(401);
-    }
-    const a = execSync("cd /root/luyen-thi-ptit-golang && git pull && docker compose down web && docker pull n0xgg04/luyenthiptit:latest && docker compose up web -d",{
-    })
+    const a = execSync("cd /root/luyen-thi-ptit-golang && git pull && docker compose down web && docker pull n0xgg04/luyenthiptit:latest && make migrate && docker compose up web -d",{stdio: 'inherit'})
     console.log(a.toString())
     res.sendStatus(200)
 })
